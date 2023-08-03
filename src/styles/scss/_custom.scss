@@ -1,0 +1,234 @@
+// Here you can add other styles
+.bg-sns-primary {
+  background-color: #dc3545 !important
+}
+
+.nav > .nav-dropdown {
+  > .nav-dropdown-items {
+    padding-left: 14px;
+  }
+}
+
+select.flat {
+  background:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='50px' height='50px'><polyline points='46.139,15.518 25.166,36.49 4.193,15.519'/></svg>");
+  background-repeat: no-repeat;
+  background-position: right 10px top 8px;
+  background-size: 16px 16px;
+  border-radius: 0px !important;
+  -webkit-border-radius: 0px !important;
+  -webkit-appearance: none;
+  -webkit-transition: 0.3s ease all;
+  -moz-transition: 0.3s ease all;
+  -ms-transition: 0.3s ease all;
+  -o-transition: 0.3s ease all;
+  transition: 0.3s ease all;
+}
+
+.RRT__tab--selected {
+  color: #dc3545;
+  font-weight: bold;
+}
+
+.verticalText {
+  transform: rotate(-90deg);
+  transform-origin: right, top;
+  -ms-transform: rotate(-90deg);
+  -ms-transform-origin:right, top;
+  -webkit-transform: rotate(-90deg);
+  -webkit-transform-origin:right, top;
+  position: absolute;
+}
+
+div.wallPreview:hover {
+  background-color: yellowgreen;
+}
+
+
+/**
+  Bootstrap styles for React-Modal
+ */
+.ReactModal__Overlay {
+  -webkit-perspective: 600;
+  perspective: 600;
+  opacity: 0;
+  overflow-x: hidden;
+  overflow-y: auto;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 9999;
+}
+.ReactModal__Overlay--after-open {
+  opacity: 1;
+  transition: opacity 150ms ease-out;
+}
+.ReactModal__Content {
+  -webkit-transform: scale(0.5) rotateX(-30deg);
+  transform: scale(0.5) rotateX(-30deg);
+}
+.ReactModal__Content--after-open {
+  -webkit-transform: scale(1) rotateX(0deg);
+  transform: scale(1) rotateX(0deg);
+  transition: all 150ms ease-in;
+}
+.ReactModal__Overlay--before-close {
+  opacity: 0;
+}
+.ReactModal__Content--before-close {
+  -webkit-transform: scale(0.5) rotateX(30deg);
+  transform: scale(0.5) rotateX(30deg);
+  transition: all 150ms ease-in;
+}
+.ReactModal__Content.modal-dialog {
+  border: none;
+  background-color: transparent;
+}
+
+/**
+ * RichText Editor styles
+ */
+.richtext-wrapper {
+  width: 100% !important;
+  display: block !important;
+  margin-bottom: 25px !important;
+  height: 400px !important;
+}
+
+.richtext-editor {
+  height: 350px !important;
+  border: 1px solid #F1F1F1 !important;
+  padding: 5px !important;
+  border-radius: 2px !important;
+}
+
+.RTWrapper {
+
+}
+
+/**
+ * Custom styles
+ */
+ul.dot-leaders {
+  max-width: 100%;
+  padding: 0;
+  overflow-x: hidden;
+  list-style: none
+}
+ul.dot-leaders li:before {
+  float: left;
+  width: 0;
+  white-space: nowrap;
+  content:
+          ". . . . . . . . . . . . . . . . . . . . "
+          ". . . . . . . . . . . . . . . . . . . . "
+          ". . . . . . . . . . . . . . . . . . . . "
+          ". . . . . . . . . . . . . . . . . . . . "
+}
+ul.dot-leaders span:first-child {
+  padding-right: 0.33em;
+  background: white;
+}
+
+/** 
+ * Custom styles for React-suggest
+ */
+ .react-autosuggest__container {
+  position: relative;
+}
+
+.react-autosuggest__input {
+  height: 34px;
+  padding-left: 10px;
+  padding-right: 10px;
+  width: 100%;
+  border: 1px solid #c2cfd6;
+  color: #444;
+  font-family: inherit;
+  font-size: inherit;
+}
+
+.react-autosuggest__input_error {
+  height: 34px;
+  padding-left: 10px;
+  padding-right: 10px;
+  width: 100%;
+  border: 1px solid var(--red);
+  color: var(--red);
+  font-family: inherit;
+  font-size: inherit;
+}
+
+.react-autosuggest__input_warning {
+  height: 34px;
+  padding-left: 10px;
+  padding-right: 10px;
+  width: 100%;
+  border: 1px solid var(--warning);
+  color: var(--warning);
+  font-family: inherit;
+  font-size: inherit;
+}
+
+.react-autosuggest__input--focused {
+  color: #3e515b;
+  background-color: #fff;
+  border-color: #8ad4ee;
+  outline: 0;
+  box-shadow: 0 0 0 0.2rem rgba(32, 168, 216, 0.25);
+}
+
+.react-autosuggest__input--open {
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+}
+
+.react-autosuggest__suggestions-container {
+  display: none;
+}
+.react-autosuggest__suggestions-container--open {
+    display: block;
+    position: absolute;
+    top: 34px;
+    width: 100%;
+    max-height: 200px;
+    border: 1px solid #aaa;
+    background-color: #fff;
+    font-family: inherit;
+    font-size: inherit;
+    z-index: 2;
+}
+        
+.react-autosuggest__suggestions-list {
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+  max-height: 200px;
+  overflow-y: auto;
+}
+
+.react-autosuggest__suggestion {
+  cursor: pointer;
+  padding: 10px 20px;
+}
+
+.react-autosuggest__suggestion--highlighted {
+  background-color: #c2e0ff;
+}
+
+.pf-char:before {
+  font-family: Arial; /* your font family here! */
+  font-weight: bold;
+  content: attr(data-char-content);
+}
+
+.highlight-panel {
+  padding: 10px;
+  box-shadow: 2px 5px 8px #888888;
+}
+
+.tracking-number {
+  width: 35px;
+  height: 35px;
+  line-height: 35px;
+  font-size: 18px;
+  color: #FFFFFF;
+  text-align: center;
+}

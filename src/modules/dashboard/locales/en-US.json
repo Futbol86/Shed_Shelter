@@ -1,0 +1,8 @@
+{
+  "app.dashboard.New_Quote":      "New Quote",
+  "app.dashboard.Manage_Quotes":  "Manage Quotes",
+  "app.dashboard.New_Client":     "New Client",
+  "app.dashboard.Manage_Clients": "Manage Clients",
+  "app.dashboard.Latest_Active_Clients": "Latest Active Clients",
+  "app.dashboard.Latest_Quotes":  "Latest Quotes"
+}

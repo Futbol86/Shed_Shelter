@@ -1,0 +1,19 @@
+{
+  "app.auth.right_panel_Heading": "National Sheds and Shelters",
+  "app.auth.right_panel_Paragraph1": "You need to provide credential information before using the system.",
+  "app.auth.right_panel_Paragraph2": "Please contact the system administrator to get your access.",
+  "app.auth.Login": "Login",
+  "app.auth.Sign_In_to_your_account": "Sign In to your account",
+  "app.auth.Request_Password": "Request Password",
+  "app.auth.Forgot_Password": "Forgot Password",
+  "app.auth.Provide_your_email_to_continue": "Provide your email to continue",
+  "app.auth.Return_to_LOGIN": "Return to LOGIN",
+  "app.auth.Please_Check_your_email_and_follow_instruction": "Please Check your email and follow resetting instruction.",
+  "app.auth.Change_Password": "Change Password",
+  "app.auth.Create_a_Password": "Create a Password",
+  "app.auth.You_can_create_a_new_password_now": "You can create a new password now.",
+  "app.auth.Please_use_the_correct_link_to_reset_Password": "Please use the correct link to reset Password!",
+  "app.auth.Password_was_changed_successfully_Please_LOGIN_again": "Password was changed successfully! Please LOGIN again!",
+  "app.auth.Password_was_changed_successfully": "Password was changed successfully!",
+  "app.auth.Please_LOGIN_again": "Please LOGIN again!"
+}

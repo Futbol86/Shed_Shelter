@@ -1,0 +1,100 @@
+.width-100 {
+    width: 100px !important;
+}
+
+.width-200 {
+    width: 200px;
+}
+
+.width-300 {
+    width: 300px;
+}
+
+.width-400 {
+    width: 400px;
+}
+
+.width-500 {
+    width: 500px;
+}
+
+.width-700 {
+    width: 500px;
+}
+
+.font-20 {
+    font-size: 20px;
+
+    input {
+        font-size: 20px;
+    }
+}
+
+.dealer-info {
+    float: right;
+}
+
+.dealer-info div {
+    font-size: 14px;
+    text-align: right;
+}
+
+.wrapper {
+	display: flex;
+	width: '100%';
+	height: 100vh;
+}
+
+.main {
+	flex-grow: 1;
+	overflow-y: auto;
+}
+
+.side-panel-toggle {
+	width: 40px;
+	height: 40px;
+	flex-shrink: 0;
+
+	display: grid;
+	place-items: center;
+
+	color: #ffffff;
+	background: #009578;
+	border: none;
+	border-radius: 5px 0 0 5px;
+	outline: none;
+	cursor: pointer;
+}
+
+.side-panel-toggle:hover {
+	background: #007960;
+}
+
+.sp-icon-close {
+	display: none !important;
+}
+
+.side-panel {
+	display: none;
+	width: 400px;
+	flex-shrink: 0;
+	padding: 2px;
+	background: #ffffff; //#009578;
+	box-shadow: 0 0 10px rgba(0, 0, 0, 0.35);
+}
+
+.side-panel-open .side-panel {
+	display: initial;
+}
+
+.side-panel-open .sp-icon-open {
+	display: none !important;
+}
+
+.side-panel-open .sp-icon-close {
+	display: initial !important;
+}
+
+.background-red {
+	background-color: #007960;
+}

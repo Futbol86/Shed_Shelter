@@ -1,0 +1,126 @@
+import React, {Component} from 'react';
+import {connect} from 'react-redux';
+import {formValueSelector, reduxForm} from "redux-form";
+import {QD_AD_sendTextMessageClients, QD_AD_clearTextMessageClientResults} from '../../../actions';
+import {getQDADCheckedQuotes, getTextMessagePhoneClientResults} from "../../../selectors";
+import TextMessageClientsModalComponent from "../../../components/QuoteDetail/Administration/TextMessageClientsModal";
+import {QUOTES_AD_TEXT_MESSAGE_CLIENTS_FORM_NAME} from "../../../constants";
+import {validateRequired, validateBetweenValue} from "../../../../../components/common/Form/FieldLevelValidation";
+
+class TextMessageClientsModal extends Component {
+    componentDidMount() {
+        const {client, userInfo, checkedQuotes} = this.props;
+        let initialTextMessageForm = {};
+        let checkedPhoneClients = checkedQuotes.map(item => item.phoneHome);
+        initialTextMessageForm.textMessagePhoneClients = checkedPhoneClients;
+        // if (userInfo && userInfo.firstName) {
+        //     let userName = userInfo.firstName.replace(/[^a-zA-Z0-9]/g, "");
+        //     if (userName && userName.length > 11) {
+        //         userName = userName.substring(0, 11);
+        //     }
+        //     initialTextMessageForm.textMessageSenderIdentity = userName;
+        // }
+        if (userInfo && userInfo.phone && userInfo.phone.length) {
+            let phoneMobile = userInfo.phone.replace(/[^0-9]/g, "");
+            initialTextMessageForm.textMessageSenderIdentity = phoneMobile;
+        }
+
+        if (client && client.contact1 && client.contact1.phoneMobile) {
+            initialTextMessageForm.textMessagePhoneMobile = client.contact1.phoneMobile;
+        }
+
+        this.props.initialize(initialTextMessageForm);
+    }
+
+    componentWillUnmount(){
+        this.props.QD_AD_clearTextMessageClientResults();
+    }
+
+    /**
+     * Handle Note submit: We will need to do it by ourselves, cannot use the default submission since it cause
+     * the parent form (buildingDetail) to be submitted too.
+     *
+     * @param event
+     */
+    handleSend = (event) => {
+        event.preventDefault();
+        event.stopPropagation();
+        const { currentTextMessageData, checkedQuotes, handleModalClose, userInfo } = this.props;
+
+        if (currentTextMessageData.senderIdentity && currentTextMessageData.content) {
+            this.props.QD_AD_sendTextMessageClients({
+                ...currentTextMessageData,
+                checkedQuotes,
+                userInfo
+            });
+        }
+    };
+    
+    render() {
+        return (
+            <TextMessageClientsModalComponent {...this.props}
+                handleSend={this.handleSend}
+                handleModalClose={this.props.handleModalClose}
+            />
+        );
+    }
+}
+
+/**
+ * Form validation
+ *
+ * @param values
+ */
+const validate = (values) => {
+    const errors = {};
+    /*  https://developer.nexmo.com/messaging/sms/guides/custom-sender-id
+    The from parameter in the request can only contain numeric or alphanumeric values that obey certain rules:
+        1. Numeric
+            - Must be a telephone number of up to 15 digits
+            - Must be in international format
+            - Cannot include the leading + or 00
+        2. Alphanumeric
+            - Must be a string of up to 11 supported characters  .
+            - Cannot contain spaces
+    */
+    const senderIdentity = values.textMessageSenderIdentity;
+    let senderIdentityErr = undefined;
+    if (!senderIdentity
+        || !senderIdentity.length
+        || (/[^a-zA-Z0-9]/.test(senderIdentity))
+        || (!isNaN(senderIdentity) && senderIdentity.length > 15)
+        || (isNaN(senderIdentity) && (senderIdentity.length > 11 || senderIdentity.includes(' ')))
+        || (senderIdentity.length >= 2 &&  senderIdentity.substring(0, 2) === '00')
+    ) {
+        senderIdentityErr = '- Must be a phone number of up to 15 digits and cannot include the leading + or 00. OR:'
+            + ' Must be a string of up to 11 supported characters and cannot contain spaces';
+    }
+
+    errors.textMessageSenderIdentity = senderIdentityErr;
+    errors.textMessagePhoneClients = validateRequired(values.textMessagePhoneClients);
+    errors.textMessageContent = validateRequired(values.textMessageContent) || validateBetweenValue(0, 160)(values.textMessageContent.length);
+    return errors;
+};
+
+const formSelector = formValueSelector(QUOTES_AD_TEXT_MESSAGE_CLIENTS_FORM_NAME);
+const mapStateToProps = (state) => ({
+    currentTextMessageData: {
+        senderIdentity:     formSelector(state, "textMessageSenderIdentity"),
+        content:            formSelector(state, "textMessageContent")
+    },
+    checkedQuotes:          getQDADCheckedQuotes(state),
+    textMessageResults:     getTextMessagePhoneClientResults(state)
+});
+
+const mapDispatchToProps = (dispatch) => ({
+    QD_AD_sendTextMessageClients:        payload => dispatch(QD_AD_sendTextMessageClients(payload)),
+    QD_AD_clearTextMessageClientResults: payload => dispatch(QD_AD_clearTextMessageClientResults(payload)),
+});
+
+
+export default connect(mapStateToProps, mapDispatchToProps)(
+    reduxForm({
+        form: QUOTES_AD_TEXT_MESSAGE_CLIENTS_FORM_NAME,
+        validate
+    })(TextMessageClientsModal)
+);

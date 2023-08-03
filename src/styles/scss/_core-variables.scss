@@ -1,0 +1,22 @@
+// core overrides
+$navbar-brand-logo-size: 180px 55px;
+
+//$sidebar-padding: ;
+//$sidebar-borders: ;
+$sidebar-color: #FFFFFF;
+$sidebar-bg:    #D32E39;
+$sidebar-nav-link-active-color:       #FFFFFF;
+$sidebar-nav-link-active-bg:          rgba(255, 255, 255, 0.23);
+$sidebar-nav-link-hover-color:        #FFFFFF;
+$sidebar-nav-link-hover-bg:           rgba(255, 255, 255, 0.23);
+$sidebar-nav-link-active-icon-color:  #FFFFFF;
+$sidebar-nav-link-hover-icon-color:   #FFFFFF;
+$sidebar-nav-link-icon-color:         #FFFFFF;
+$sidebar-nav-title-color:             #FFFFFF;
+$sidebar-nav-dropdown-indicator-color:  #FFFFFF;
+$sidebar-minimizer-indicator-color:     #FFFFFF;
+
+$mobile-sidebar-width:  245px !default; // instead of 220px
+$sidebar-width:         225px; //instead of 200px
+$navbar-brand-width:    180px !default; // instead of 155px
+$navbar-brand-logo:     url('../img/logo.jpg') !default;;
